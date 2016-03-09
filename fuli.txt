@@ -1,0 +1,23 @@
+#include<stdio.h>
+#include<math.h>
+main(){
+	double benjin=0,W=0;
+	int year=0;
+	int N=1;
+	double lilv;
+
+
+	printf("***********复利计算器*************\n");
+	printf("请输入要存入的本金：");
+	scanf("%lf",&benjin);
+	printf("请输入年利率：");
+	scanf("%lf",&lilv);
+	printf("请输入年限：");
+	scanf("%d",&year);
+	printf("请输入年复利次数:");
+	scanf("%d",&N);
+	lilv=pow((1+lilv/N),N)-1;
+	W=benjin*pow((1+lilv),year);
+	printf("输出最终值为：%lf\n",W);
+		
+}
