@@ -1,23 +1,78 @@
 #include<stdio.h>
 #include<math.h>
+
+double benjin=0,W=0;
+int year=0;
+int N=1;
+double lilv;
+
+void danli(){
+    printf("请输入要存入的本金：");
+    scanf("%lf",&benjin);
+    printf("请输入年利率：");
+    scanf("%lf",&lilv);
+    printf("请输入年限：");
+    scanf("%d",&year);
+    W=benjin+benjin*lilv*year;
+    printf("输出最终值为：%.2lf\n",W);
+
+
+}
+
+void fuli(){
+
+    printf("请输入要存入的本金：");
+    scanf("%lf",&benjin);
+    printf("请输入年利率：");
+    scanf("%lf",&lilv);
+    printf("请输入年限：");
+    scanf("%d",&year);
+    printf("请输入年复利次数:");
+    scanf("%d",&N);
+    lilv=pow((1+lilv/N),N)-1;
+    W=benjin*pow((1+lilv),year);
+    printf("输出最终值为：%.2lf\n",W);
+
+}
+
+void benjinjisuan(){
+    printf("请输入最后收益：");
+    scanf("%lf",&W);
+    printf("请输入年利率：");
+    scanf("%lf",&lilv);
+    printf("请输入年限：");
+    scanf("%d",&year);
+    printf("请输入年复利次数:");
+    scanf("%d",&N);
+    lilv=pow((1+lilv/N),N)-1;
+    benjin=W/pow((1+lilv),year);
+    printf("输出最终值为：%.2lf\n",benjin);
+
+}
+
 main(){
-	double benjin=0,W=0;
-	int year=0;
-	int N=1;
-	double lilv;
+    int num=0;
 
+printf("***********复利计算器(2.0)*************\n");
+printf("|---------------------------------|\n");
+printf("|      1.单利                     |\n");
+printf("|      2.复利                     |\n");
+printf("|      3.计算本金                 |\n");
+printf("|---------------------------------|\n");
+printf("请输入选择：");
+scanf("%d",&num);
+switch(num){
+case 1:
+    danli();
+    break;
+case 2:
+    fuli();
+    break;
+case 3:
+    benjinjisuan();
+default:
+    return 0;
 
-	printf("***********复利计算器*************\n");
-	printf("请输入要存入的本金：");
-	scanf("%lf",&benjin);
-	printf("请输入年利率：");
-	scanf("%lf",&lilv);
-	printf("请输入年限：");
-	scanf("%d",&year);
-	printf("请输入年复利次数:");
-	scanf("%d",&N);
-	lilv=pow((1+lilv/N),N)-1;
-	W=benjin*pow((1+lilv),year);
-	printf("输出最终值为：%lf\n",W);
-		
+}
+
 }
