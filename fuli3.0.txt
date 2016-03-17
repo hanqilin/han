@@ -1,0 +1,115 @@
+#include<stdio.h>
+#include<math.h>
+
+double benjin=0,W=0;
+double year=0;
+int N=1;
+double lilv;
+
+void danli(){
+    printf("请输入要存入的本金：");
+    scanf("%lf",&benjin);
+    printf("请输入年利率：");
+    scanf("%lf",&lilv);
+    printf("请输入年限：");
+    scanf("%lf",&year);
+    W=benjin+benjin*lilv*year;
+    printf("输出最终值为：%.2lf\n",W);
+
+
+}
+
+void fuli(){
+
+    printf("请输入要存入的本金：");
+    scanf("%lf",&benjin);
+    printf("请输入年利率：");
+    scanf("%lf",&lilv);
+    printf("请输入年限：");
+    scanf("%lf",&year);
+    printf("请输入年复利次数:");
+    scanf("%d",&N);
+    lilv=pow((1+lilv/N),N)-1;
+    W=benjin*pow((1+lilv),year);
+    printf("输出最终值为：%.2lf\n",W);
+
+}
+
+void benjinjisuan(){
+    printf("请输入最后收益：");
+    scanf("%lf",&W);
+    printf("请输入年利率：");
+    scanf("%lf",&lilv);
+    printf("请输入年限：");
+    scanf("%lf",&year);
+    printf("请输入年复利次数:");
+    scanf("%d",&N);
+    lilv=pow((1+lilv/N),N)-1;
+    benjin=W/pow((1+lilv),year);
+    printf("本金为：%.2lf\n",benjin);
+
+}
+void TZtime(){
+    printf("请输入要存入的本金：");
+    scanf("%lf",&benjin);
+    printf("请输入年利率：");
+    scanf("%lf",&lilv);
+    printf("请输入年复利次数:");
+    scanf("%d",&N);
+    printf("请输入最后收益：");
+    scanf("%lf",&W);
+    lilv=pow((1+lilv/N),N)-1;
+    year= log(W/benjin)/log(1+lilv);
+    printf("投资年限估计为%.2lf年\n",year);
+
+}
+void BestProject(){
+    printf("请输入要存入的本金：");
+    scanf("%lf",&benjin);
+    printf("请输入年限：");
+    scanf("%lf",&year);
+    printf("请输入年复利次数:");
+    scanf("%d",&N);
+    printf("请输入最后收益：");
+    scanf("%lf",&W);
+    lilv=pow((pow((W/benjin),(1.0/year))-1;+1),(1.0/N))*N-N;
+    printf("投资项目利率估计为：%.2lf\n",lilv);
+}
+
+
+
+
+main(){
+    int num=0;
+
+printf("***********复利计算器(3.0)*************\n");
+printf("|---------------------------------|\n");
+printf("|      1.单利                     |\n");
+printf("|      2.复利                     |\n");
+printf("|      3.计算本金                 |\n");
+printf("|      4.投资年限估计             |\n");
+printf("|      5.投资项目利率估计         |\n");
+printf("|---------------------------------|\n");
+printf("请输入选择：");
+scanf("%d",&num);
+switch(num){
+case 1:
+    danli();
+    break;
+case 2:
+    fuli();
+    break;
+case 3:
+    benjinjisuan();
+    break;
+case 4:
+    TZtime();
+    break;
+case 5:
+    BestProject();
+default:
+    return 0;
+
+}
+
+}
